@@ -1,7 +1,38 @@
-﻿@page "/"
+﻿
+@page "/"
+@inject HttpClient Http
 
-<h1>Hello, world!</h1>
+<div class="search-container">
+    <h1>Food API</h1>
+    <div class="search-input">
+        <input type="text" />
+        <button type="submit"> Search </button>
+    </div>
 
-Welcome to your new app.
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+</div>
+
+
+@code {
+    private Food[] food;
+
+    const string APP_ID = "";
+    const string APP_KEY = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        food = await Http.GetFromJsonAsync<Food[]>("https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}");
+    }
+
+    public class Food
+    {
+        public DateTime Date { get; set; }
+
+        public int TemperatureC { get; set; }
+
+        public string Summary { get; set; }
+
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
+}
+

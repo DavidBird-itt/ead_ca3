@@ -4,8 +4,8 @@
 <div class="search-container">
     <h1>Country Search</h1>
     <div class="search-input">
-        <input type="text" />
-        <button type="submit"> Search </button>
+        <input type="text" @bind="searchValue" />
+        <button type="submit" value="searchValue" @onclick="searchCountry"> Search </button>
     </div>
 
     <table class="table">
@@ -17,23 +17,37 @@
                 <th>Population</th>
             </tr>
         </thead>
+        <tbody>
+        </tbody>
     </table>
-
 </div>
 
 @code {
     private Root[] data;
+    string searchValue = "";
+    const string API_KEY = "b14c995566a1eb4fb31557124f720a82";
 
+    public void searchCountry()
+    {
+        Console.WriteLine(searchValue);
+    }
+    
     protected override async Task OnInitializedAsync()
     {
-        string url = "https://restcountries.eu/rest/v2/all";
+        string url = "api.openweathermap.org/data/2.5/weather?q=" + searhValue + "&appid=" + API_KEY;
         data = await Http.GetFromJsonAsync<Root[]>(url);
 
         foreach (var d in data)
         {
-            Console.WriteLine(d.name + "  " + d.capital + "  " + d.region + "  " + d.population);
+            //Console.WriteLine(d.name + "  " + d.capital + "  " + d.region + "  " + d.population);
         }
     }
+
+@*Web API Add Cors
+    services.AddCors(o => o.AddPolicy("MyCORSpolicy", builder =>
+    {
+            builder.AllowAnyOrigin();
+        }));*@
 }
 
 

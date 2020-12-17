@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 
-namespace ca3.Pages
+namespace ca3Pages
 {
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
     public class Coord

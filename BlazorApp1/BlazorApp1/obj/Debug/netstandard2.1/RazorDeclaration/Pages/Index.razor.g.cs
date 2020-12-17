@@ -93,60 +93,60 @@ using System.Runtime.Serialization;
 #nullable restore
 #line 50 "C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\Pages\Index.razor"
        
-    private ca3.Pages.Root data;
-    private bool found;
-    private bool metric = true;
-    private string errorMessage;
+        private ca3Pages.Root data;
+        public bool found;
+        private bool metric = true;
+        private string errorMessage;
 
-    string searchValue = "";
-    const string API_KEY = "b14c995566a1eb4fb31557124f720a82";
+        string searchValue = "";
+        const string API_KEY = "b14c995566a1eb4fb31557124f720a82";
 
-    private async Task GetWeatherAsync()
-    {
-        try
+        private async Task GetWeatherAsync()
         {
-            string uri = "https://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=b14c995566a1eb4fb31557124f720a82";
-            data = await Http.GetFromJsonAsync<ca3.Pages.Root>(uri);
-            found = true;
-            errorMessage = String.Empty;
+            try
+            {
+                string uri = "https://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=b14c995566a1eb4fb31557124f720a82";
+                data = await Http.GetFromJsonAsync<ca3Pages.Root>(uri);
+                found = true;
+                errorMessage = String.Empty;
+            }
+            catch (Exception e)
+            {
+                found = false;
+                errorMessage = e.Message;
+            }
         }
-        catch (Exception e)
+
+        public void toggleMetric()
         {
-            found = false;
-            errorMessage = e.Message;
+            metric = !metric;
         }
-    }
 
-    public void toggleMetric()
-    {
-        metric = !metric;
-    }
+        public double returnCelsius(double c)
+        {
+            double celsius =  c - 273.15;
 
-    public double returnCelsius(double c)
-    {
-        double celsius =  c - 273.15;
+            return Math.Round(celsius, 2);
+        }
 
-        return Math.Round(celsius, 2);
-    }
+        public double returnFahrenheit(double f)
+        {
+            double fahrenheit = (1.8* (f - 273)) + 32;
 
-    public double returnFahrenheit(double f)
-    {
-        double fahrenheit = (1.8* (f - 273)) + 32;
+            return Math.Round(fahrenheit, 2);
+        }
 
-        return Math.Round(fahrenheit, 2);
-    }
+        protected override async Task OnInitializedAsync()
+        {
+            await GetWeatherAsync();
+        }
 
-    protected override async Task OnInitializedAsync()
-    {
-        await GetWeatherAsync();
-    }
+        public async void searchCity()
+        {
+            await GetWeatherAsync();
+        }
 
-    public async void searchCity()
-    {
-        await GetWeatherAsync();
-    }
-
-
+    
 
 
 #line default

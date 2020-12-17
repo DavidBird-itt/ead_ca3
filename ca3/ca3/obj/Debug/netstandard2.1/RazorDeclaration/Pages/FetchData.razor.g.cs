@@ -84,7 +84,7 @@ using ca3.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 37 "C:\dev\ead1\ca3\ead_ca3\ca3\ca3\Pages\FetchData.razor"
+#line 38 "C:\dev\ead1\ca3\ead_ca3\ca3\ca3\Pages\FetchData.razor"
        
     private WeatherForecast[] forecasts;
 

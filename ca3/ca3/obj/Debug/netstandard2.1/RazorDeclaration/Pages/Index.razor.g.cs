@@ -84,27 +84,19 @@ using ca3.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 16 "C:\dev\ead1\ca3\ead_ca3\ca3\ca3\Pages\Index.razor"
+#line 32 "C:\dev\ead1\ca3\ead_ca3\ca3\ca3\Pages\Index.razor"
        
-    private Food[] food;
-
-    const string APP_ID = "";
-    const string APP_KEY = "";
+    private Country[] data;
 
     protected override async Task OnInitializedAsync()
     {
-        food = await Http.GetFromJsonAsync<Food[]>("https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}");
+        string url = "https://restcountries.eu/rest/v2/all";
+        data = await Http.GetJsonAsync<Country[]>(url);
     }
 
-    public class Food
+    public class Country
     {
-        public DateTime Date { get; set; }
-
-        public int TemperatureC { get; set; }
-
-        public string Summary { get; set; }
-
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+        public String Name { get; set; }
     }
 
 #line default

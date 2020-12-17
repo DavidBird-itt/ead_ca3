@@ -2,45 +2,37 @@
 @page "/"
 
 <div class="search-container">
-    <h1>Food API</h1>
+    <h1>Country Search</h1>
     <div class="search-input">
         <input type="text" />
         <button type="submit"> Search </button>
     </div>
 
-    <!--
     <table class="table">
         <thead>
             <tr>
-                <th>Title</th>
+                <th>Country</th>
+                <th>Capital</th>
+                <th>Region</th>
+                <th>Population</th>
             </tr>
         </thead>
-        <tbody>
-            @foreach (var d in data)
-            {
-                <tr>
-                    <td>@d.Name</td>
-                </tr>
-            }
-        </tbody>
     </table>
-        -->
 
 </div>
 
-
 @code {
-    private Country[] data;
+    private Root[] data;
 
     protected override async Task OnInitializedAsync()
     {
         string url = "https://restcountries.eu/rest/v2/all";
-        data = await Http.GetJsonAsync<Country[]>(url);
-    }
+        data = await Http.GetFromJsonAsync<Root[]>(url);
 
-    public class Country
-    {
-        public String Name { get; set; }
+        foreach (var d in data)
+        {
+            Console.WriteLine(d.name + "  " + d.capital + "  " + d.region + "  " + d.population);
+        }
     }
 }
 

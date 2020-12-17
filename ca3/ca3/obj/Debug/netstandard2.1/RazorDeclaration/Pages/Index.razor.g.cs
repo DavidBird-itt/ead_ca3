@@ -84,19 +84,19 @@ using ca3.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 32 "C:\dev\ead1\ca3\ead_ca3\ca3\ca3\Pages\Index.razor"
+#line 24 "C:\dev\ead1\ca3\ead_ca3\ca3\ca3\Pages\Index.razor"
        
-    private Country[] data;
+    private Root[] data;
 
     protected override async Task OnInitializedAsync()
     {
         string url = "https://restcountries.eu/rest/v2/all";
-        data = await Http.GetJsonAsync<Country[]>(url);
-    }
+        data = await Http.GetFromJsonAsync<Root[]>(url);
 
-    public class Country
-    {
-        public String Name { get; set; }
+        foreach (var d in data)
+        {
+            Console.WriteLine(d.name + "  " + d.capital + "  " + d.region + "  " + d.population);
+        }
     }
 
 #line default

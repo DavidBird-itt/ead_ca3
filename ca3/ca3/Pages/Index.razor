@@ -11,13 +11,24 @@
     <table class="table">
         <thead>
             <tr>
+                <th>City</th>
                 <th>Country</th>
-                <th>Capital</th>
-                <th>Region</th>
-                <th>Population</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+                <th>Pressure</th>
             </tr>
         </thead>
         <tbody>
+            @foreach(var d in data)
+            {
+                <tr>
+                    <td>@d.name</td>
+                    <td>@d.sys.country</td>
+                    <td>@d.main.temp</td>
+                    <td>@d.main.humidity</td>
+                    <td>@d.main.pressure</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>
@@ -31,10 +42,10 @@
     {
         Console.WriteLine(searchValue);
     }
-    
+
     protected override async Task OnInitializedAsync()
     {
-        string url = "api.openweathermap.org/data/2.5/weather?q=" + searhValue + "&appid=" + API_KEY;
+        string url = "api.openweathermap.org/data/2.5/weather?q=Navan&appid=b14c995566a1eb4fb31557124f720a82";
         data = await Http.GetFromJsonAsync<Root[]>(url);
 
         foreach (var d in data)
@@ -42,13 +53,8 @@
             //Console.WriteLine(d.name + "  " + d.capital + "  " + d.region + "  " + d.population);
         }
     }
-
-@*Web API Add Cors
-    services.AddCors(o => o.AddPolicy("MyCORSpolicy", builder =>
-    {
-            builder.AllowAnyOrigin();
-        }));*@
 }
+
 
 
 

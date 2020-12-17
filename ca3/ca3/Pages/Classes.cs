@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace ca3.Pages
 {
-    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
+   // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
     public class Coord
     {
         public double lon { get; set; }
@@ -55,7 +56,10 @@ namespace ca3.Pages
     {
         public Coord coord { get; set; }
         public List<Weather> weather { get; set; }
-        public string @base { get; set; }
+
+        [DataMember(Name="base")]
+        public string base1 { get; set; }
+
         public Main main { get; set; }
         public int visibility { get; set; }
         public Wind wind { get; set; }
@@ -67,4 +71,6 @@ namespace ca3.Pages
         public string name { get; set; }
         public int cod { get; set; }
     }
+
+
 }

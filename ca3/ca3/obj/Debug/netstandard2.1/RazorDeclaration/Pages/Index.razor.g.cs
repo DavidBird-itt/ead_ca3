@@ -84,27 +84,27 @@ using ca3.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 25 "C:\dev\ead1\ca3\ead_ca3\ca3\ca3\Pages\Index.razor"
+#line 36 "C:\dev\ead1\ca3\ead_ca3\ca3\ca3\Pages\Index.razor"
        
-private Root[] data;
-string searchValue = "";
+    private Root[] data;
+    string searchValue = "";
+    const string API_KEY = "b14c995566a1eb4fb31557124f720a82";
 
-public void searchCountry()
-{
-    Console.WriteLine(searchValue);
-}
-
-protected override async Task OnInitializedAsync()
-{
-    string url = "api.openweathermap.org/data/2.5/weather?q=dublin&appid=b14c995566a1eb4fb31557124f720a82";
-    data = await Http.GetFromJsonAsync<Root[]>(url);
-
-    foreach (var d in data)
+    public void searchCountry()
     {
-        //Console.WriteLine(d.name + "  " + d.capital + "  " + d.region + "  " + d.population);
+        Console.WriteLine(searchValue);
     }
-}
 
+    protected override async Task OnInitializedAsync()
+    {
+        string url = "api.openweathermap.org/data/2.5/weather?q=Navan&appid=b14c995566a1eb4fb31557124f720a82";
+        data = await Http.GetFromJsonAsync<Root[]>(url);
+
+        foreach (var d in data)
+        {
+            //Console.WriteLine(d.name + "  " + d.capital + "  " + d.region + "  " + d.population);
+        }
+    }
 
 #line default
 #line hidden

@@ -90,7 +90,7 @@ using System.Runtime.Serialization;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\Shared\NavMenu.razor"
+#line 18 "C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

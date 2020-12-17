@@ -711,6 +711,6 @@ C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Debug\netstandard2.1\BlazorApp
 C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Debug\netstandard2.1\BlazorApp1.csproj.CopyComplete
 C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Debug\netstandard2.1\BlazorApp1.dll
 C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Debug\netstandard2.1\BlazorApp1.pdb
-C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Debug\netstandard2.1\integrity\2XpE2-f-yaSjRlV2YVu9X5X_l8HW4NF-N17Ml9RmYYU=.hash
-C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Debug\netstandard2.1\integrity\_YCLE577UEmWov82bpOLkyxDOorlfHS8-OB3cBOY8Yg=.hash
-C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Debug\netstandard2.1\integrity\PIiOJwHoj7ybMFSW2Vr_smR-CthBgnY-ZD2qdMDXS3U=.hash
+C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Debug\netstandard2.1\integrity\auT3iGm-1Ve4ye8ZBkVR_uvwKhbSTfjtJmOC2GuBTMk=.hash
+C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Debug\netstandard2.1\integrity\V2MsW1O9ZlxawMk7oFYYdVNjWx4idRTEfMRpVmUUWOo=.hash
+C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Debug\netstandard2.1\integrity\S6DQhH268wsdTPBgXOdBC-Xv-yseiOhZVGMDDR45zVQ=.hash

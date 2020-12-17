@@ -1,0 +1,175 @@
+﻿@inject HttpClient Http
+@page "/"
+
+
+<div class="search-container">
+    <h1>Weather Search</h1>
+    <div class="search-input">
+        <input type="text" @bind="searchValue" />
+        <button type="submit" @onclick="searchCountry"> Search </button>
+    </div>
+
+    <div class="buttons">
+        <button type="btn" @onclick="toggleMetric">Celsius/Fahrenheit</button>
+    </div>
+    @if (data == null)
+    {
+        <p>Loading Data</p>
+    }
+    else
+    {
+        @if (found)
+        {
+            <h3>Weather in @searchValue is @data.weather[0].main</h3>
+
+            @if (metric)
+            {
+                <p>Temperature: @returnCelsius(data.main.temp) C</p>
+                <p>Feels like: @returnCelsius(data.main.feels_like) C</p>
+            }
+            else
+            {
+                <p>Temperature: @returnFahrenheit(data.main.temp) F</p>
+                <p>Feels like: @returnFahrenheit(data.main.feels_like) F</p>
+            }
+
+
+
+            <p>Temperature: @data.main.temp K</p>
+            <p>Feels like: @data.main.feels_like K</p>
+
+            <p>Humidity: @data.main.humidity</p>
+            <p>Wind Speed: @data.wind.speed</p>
+        }
+        else
+        {
+            <p>Error: @searchValue is not a city, please try again</p>
+        }
+    }
+</div>
+
+@code {
+
+    private Root data;
+    private bool found;
+    private bool metric = true;
+    private string errorMessage;
+
+    string searchValue = "";
+    const string API_KEY = "b14c995566a1eb4fb31557124f720a82";
+
+    private async Task GetWeatherAsync()
+    {
+        try
+        {
+            string uri = "https://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=b14c995566a1eb4fb31557124f720a82";
+            data = await Http.GetFromJsonAsync<Root>(uri);
+            found = true;
+            errorMessage = String.Empty;
+        }
+        catch (Exception e)
+        {
+            found = false;
+            errorMessage = e.Message;
+        }
+    }
+
+    public void toggleMetric()
+    {
+        metric = !metric;
+    }
+
+    public double returnCelsius(double c)
+    {
+        double celsius =  c - 273.15;
+
+        return Math.Round(celsius, 2);
+    }
+
+    public double returnFahrenheit(double f)
+    {
+        double fahrenheit = (1.8* (f - 273)) + 32;
+
+        return Math.Round(fahrenheit, 2);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetWeatherAsync();
+    }
+
+    public async void searchCountry()
+    {
+        await GetWeatherAsync();
+    }
+
+    public class Coord
+    {
+        public double lon { get; set; }
+        public double lat { get; set; }
+    }
+
+    public class Weather
+    {
+        public int id { get; set; }
+        public string main { get; set; }
+        public string description { get; set; }
+        public string icon { get; set; }
+    }
+
+    public class Main
+    {
+        public double temp { get; set; }
+        public double feels_like { get; set; }
+        public double temp_min { get; set; }
+        public double temp_max { get; set; }
+        public int pressure { get; set; }
+        public int humidity { get; set; }
+    }
+
+    public class Wind
+    {
+        public double speed { get; set; }
+        public int deg { get; set; }
+    }
+
+    public class Clouds
+    {
+        public int all { get; set; }
+    }
+
+    public class Sys
+    {
+        public int type { get; set; }
+        public int id { get; set; }
+        public double message { get; set; }
+        public string country { get; set; }
+        public int sunrise { get; set; }
+        public int sunset { get; set; }
+    }
+
+    public class Root
+    {
+        public Coord coord { get; set; }
+        public List<Weather> weather { get; set; }
+
+        [DataMember(Name = "base")]
+        public string base1 { get; set; }
+
+        public Main main { get; set; }
+        public int visibility { get; set; }
+        public Wind wind { get; set; }
+        public Clouds clouds { get; set; }
+        public int dt { get; set; }
+        public Sys sys { get; set; }
+        public int timezone { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public int cod { get; set; }
+    }
+
+}
+
+
+
+

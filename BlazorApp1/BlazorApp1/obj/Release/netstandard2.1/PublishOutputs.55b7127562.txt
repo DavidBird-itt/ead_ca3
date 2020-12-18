@@ -2,6 +2,7 @@ C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Release\netstandard2.1\PubTmp\
 C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Release\netstandard2.1\PubTmp\Out\wwwroot\css\app.css
 C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Release\netstandard2.1\PubTmp\Out\wwwroot\css\bootstrap\bootstrap.min.css
 C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Release\netstandard2.1\PubTmp\Out\wwwroot\css\bootstrap\bootstrap.min.css.map
+C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Release\netstandard2.1\PubTmp\Out\wwwroot\css\main.css
 C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Release\netstandard2.1\PubTmp\Out\wwwroot\css\open-iconic\FONT-LICENSE
 C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Release\netstandard2.1\PubTmp\Out\wwwroot\css\open-iconic\font\css\open-iconic-bootstrap.min.css
 C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Release\netstandard2.1\PubTmp\Out\wwwroot\css\open-iconic\font\fonts\open-iconic.eot
@@ -11,6 +12,7 @@ C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Release\netstandard2.1\PubTmp\
 C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Release\netstandard2.1\PubTmp\Out\wwwroot\css\open-iconic\font\fonts\open-iconic.woff
 C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Release\netstandard2.1\PubTmp\Out\wwwroot\css\open-iconic\ICON-LICENSE
 C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Release\netstandard2.1\PubTmp\Out\wwwroot\css\open-iconic\README.md
+C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Release\netstandard2.1\PubTmp\Out\wwwroot\debug.log
 C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Release\netstandard2.1\PubTmp\Out\wwwroot\favicon.ico
 C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Release\netstandard2.1\PubTmp\Out\wwwroot\index.html
 C:\dev\ead1\ca3\ead_ca3\BlazorApp1\BlazorApp1\obj\Release\netstandard2.1\PubTmp\Out\wwwroot\sample-data\weather.json
